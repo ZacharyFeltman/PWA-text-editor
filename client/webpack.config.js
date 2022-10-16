@@ -18,12 +18,45 @@ module.exports = () => {
       path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
-      
+      new HtmlWebpackPlugin({
+        template: './index.html',
+    }),
+      new WebpackPwaManifest({
+        name: "J.A.T.E",
+        short_name: "J.A.T.E",
+        description: "Just Another Text Editor",
+        start_url: "/",
+        publicPath: "/",
+        fingerprints: false,
+        inject: true,
+        icons: [
+          {
+            src: path.resolve("src/images/logo.png"),
+            sizes: [96,128,192,256.384,512],
+            destination: path.join('assests', 'icons'),
+          }
+        ]
+      }),
+      new InjectManifest({
+        swSrc: './src-sw.js',
+      })
     ],
-
     module: {
       rules: [
-        
+        {
+          test: /\.css$/i,
+          use: ["style-loader", "css-loader"]
+        },
+        {
+          test: /\.m?js$/,
+          exclude: /(node_module|bower_components)/,
+          use: {
+            loader: 'babel-loader',
+            options: {
+              presets: ["@babel/preset-env"],
+            }
+          }
+        }
       ],
     },
   };
