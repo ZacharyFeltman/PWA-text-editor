@@ -1,5 +1,5 @@
 import { openDB } from "idb";
-import { ContextExclusionPlugin } from "webpack";
+// import { ContextExclusionPlugin } from "webpack";
 
 const initdb = async () =>
   openDB("jate", 1, {
@@ -29,8 +29,9 @@ export const getDb = async () => {
   const jateDB = await openDB("jate", 1);
   const tx = jateDB.transaction("jate", "readwrite");
   const store = tx.objectStore("jate");
-  const request = store.put({ id: 1, value: content });
+  const request = store.get(1);
   const result = await request;
+  return result?.value;
   console.log(result);
   console.error("getDb not implemented");
 };
