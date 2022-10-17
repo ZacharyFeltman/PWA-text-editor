@@ -19,5 +19,6 @@ Using PWA a user can create notes or code without an internet connection.  Using
 ## Heroku Application
 [https://jate-editor-pwa.herokuapp.com/](https://jate-editor-pwa.herokuapp.com/)
 
+
 ## Screenshot
-![screenshot](screenshot)
+![screenshot](./screenshot)
