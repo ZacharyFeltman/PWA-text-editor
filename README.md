@@ -21,4 +21,4 @@ Using PWA a user can create notes or code without an internet connection.  Using
 
 
 ## Screenshot
-![screenshot](./screenshot)
+![screenshot](./img/screenshot)
